@@ -4,4 +4,12 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  server: {
+    watch: {
+      usePolling: true, // Forces Vite to check for file changes
+      interval: 100,    // Checks every 100ms
+    },
+    host: true,         // Ensures the server is accessible
+    strictPort: true,
+  },
 })
